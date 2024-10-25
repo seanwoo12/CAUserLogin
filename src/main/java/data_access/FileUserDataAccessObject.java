@@ -44,7 +44,7 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
                 final String header = reader.readLine();
 
                 if (!header.equals(HEADER)) {
-                    throw new RuntimeException(String.format("header should be%n: %s%but was:%n%s", HEADER, header));
+                    throw new RuntimeException(String.format("header should be:%n%s%nbut was:%n%s", HEADER, header));
                 }
 
                 String row;
@@ -94,7 +94,12 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface,
 
     @Override
     public void setCurrentUser(String name) {
+        // This method is intentionally left empty because the current user is not managed in the database.
+    }
 
+    @Override
+    public String getCurrentUser() {
+        return "";
     }
 
     @Override
